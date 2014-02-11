@@ -1,0 +1,10 @@
+{
+    "api_base_uri": "http://developer.trimet.org/ws",
+    "api_version": "V1",
+    "api_key": "GET YOUR KEY HERE: http://developer.trimet.org/registration/",
+    "response_format": "json",
+    "callback": "",
+    "include_streetcar": false
+}
+
+
