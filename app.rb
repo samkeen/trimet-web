@@ -1,10 +1,9 @@
 # myapp.rb
 require 'sinatra'
-
-require 'json'
+require 'yaml'
 here = Dir.pwd
 require "#{here}/lib/transit_system.rb"
-config = JSON.parse( IO.read("#{here}/config.json") )
+config = YAML.load_file("#{here}/config.yaml")
 
 trimet = TransitSystem.new(config)
 

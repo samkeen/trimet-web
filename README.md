@@ -7,10 +7,10 @@ Just stating, not ready for use yet.  I plan to host at pdxt.org eventually.
 ```
 bundle install
 
-cp config.dist.json config.json
+cp config.dist.yaml config.yaml
 ```
 
-Get your Trimet API Key and write to config.json `api_key`
+Get your Trimet API Key and write to config.yaml `api_key`
 
 ```
 ruby app.rb

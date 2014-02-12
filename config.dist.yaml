@@ -1,0 +1,10 @@
+# Your API key from Trimet.
+# GET YOUR KEY HERE: http://developer.trimet.org/registration/
+api_key:
+# Typically you wont need to change any of these unless Trimet changes
+# something on their side.
+api_base_uri:      http://developer.trimet.org/ws
+api_version:       V1
+response_format:   json
+callback:
+include_streetcar: false
