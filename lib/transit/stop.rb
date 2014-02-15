@@ -1,8 +1,6 @@
-
+require_relative 'arrival'
 module Transit
   class Stop
-
-    @date_fields = ['scheduled', ]
 
     def initialize(current_state)
       @state = current_state
@@ -15,7 +13,11 @@ module Transit
 
     # @return [Array]
     def arrivals
-      @state['arrival']
+      arrivals = []
+      @state['arrival'].each do |arrival|
+        arrivals.push(Arrival.new(arrival, :shortSign))
+      end
+      arrivals
     end
 
   end
