@@ -1,5 +1,5 @@
 <pre>
   For Transit stop: <%= location['locid'] %> : <%= location['desc'] %>} (<%= location['dir'] %>)
   <% arrivals.each do |bus| %>
-      <%= bus['shortSign'] %> will arrive at <%= bus['estimated'] %><% end %>
+      <%= bus['shortSign'] %> will arrive at <%= minutes_from_now(bus['estimated']) %><% end %>
 </pre>

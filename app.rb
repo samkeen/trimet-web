@@ -1,11 +1,22 @@
-# myapp.rb
 require 'sinatra'
 require 'yaml'
+
 here = Dir.pwd
-require "#{here}/lib/transit_system.rb"
+require "#{here}/lib/transit/system.rb"
 config = YAML.load_file("#{here}/config.yaml")
 
-trimet = TransitSystem.new(config)
+trimet = Transit::System.new(config)
+
+helpers do
+  # @param [String] time_string
+  # @return [Integer] Number of Minutes
+  def minutes_from_now(time_string)
+    if(time_string.to_s != '')
+      that_time = Time.parse(time_string)
+      ((that_time - Time.now)/60).to_i
+    end
+  end
+end
 
 get '/' do
   'Hello world!'
