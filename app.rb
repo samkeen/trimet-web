@@ -16,6 +16,12 @@ helpers do
       ((that_time - Time.now)/60).to_i
     end
   end
+
+  def short_date(time_string)
+    if(time_string.to_s != '')
+      Time.parse(time_string).strftime('%a, %I:%M:%S %P')
+    end
+  end
 end
 
 get '/' do

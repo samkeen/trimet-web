@@ -1,5 +1,10 @@
-<pre>
-  For Transit stop: <%= location['locid'] %> : <%= location['desc'] %>} (<%= location['dir'] %>)
-  <% arrivals.each do |bus| %>
-      <%= bus['shortSign'] %> will arrive at <%= minutes_from_now(bus['estimated']) %><% end %>
-</pre>
+<p><strong>For Transit stop: <%= location['locid'] %> : <%= location['desc'] %> (<%= location['dir'] %>)</strong></p>
+<% arrivals.each do |bus| %>
+    <% if(bus['status'] == 'estimated') %>
+        <p><%= bus['shortSign'] %> will arrive in <%= minutes_from_now(bus['estimated']) %> mins (realtime)</p>
+    <% elsif(bus['status'] == 'scheduled') %>
+        <p><%= bus['shortSign'] %> is scheduled to arrive at <%= short_date(bus['scheduled']) %></p>
+    <% else %>
+        <p><%= bus['shortSign'] %> will arrive at ###</p>
+    <% end %>
+<% end %>
