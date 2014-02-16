@@ -1,7 +1,7 @@
 require 'sinatra'
 require 'yaml'
 
-here = Dir.pwd
+here = File.dirname(__FILE__)
 require "#{here}/lib/transit/system.rb"
 require "#{here}/lib/datetime_helper.rb"
 config = YAML.load_file("#{here}/config.yaml")

@@ -1,3 +1,4 @@
+require 'ostruct'
 #
 # Extend OpenStruct to accept CamelCase or snake_case field names
 #
@@ -12,14 +13,18 @@ class ViewObject < OpenStruct
   # @param [Hash] state
   # @param [Symbol] to_string_field This is the field from state who's value
   #        will be used for the to_s method
-  def initialize(state, to_string_field)
-    @to_string_field = to_string_field.to_sym
+  def initialize(state, to_string_field = nil)
+    @to_string_field = to_string_field.to_sym if to_string_field.respond_to?(:to_sym)
     super(underscore_ize_keys(state))
   end
 
   # @return [String]
   def to_s
-    send(@to_string_field)
+    if(@to_string_field.nil?)
+      super
+    else
+      send(@to_string_field)
+    end
   end
 
   # For a ViewObject with state: {'foo': 'hello'},
