@@ -1,3 +1,16 @@
 source 'https://rubygems.org'
 gem 'sinatra'
-gem 'rack-test'
+
+
+group :development, :test do
+  gem 'rake'
+end
+
+group :development do
+  gem 'travis-lint'
+end
+
+group :test do
+  gem 'rack-test'
+end
+
