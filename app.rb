@@ -4,7 +4,7 @@ require 'yaml'
 here = File.dirname(__FILE__)
 require "#{here}/lib/transit/system.rb"
 require "#{here}/lib/datetime_helper.rb"
-config = YAML.load_file("#{here}/config.yaml")
+config = YAML.load_file("#{here}/config.yml")
 
 trimet = Transit::System.new(config)
 

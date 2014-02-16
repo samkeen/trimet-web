@@ -1,0 +1,9 @@
+api_base_uri:      http://developer.trimet.org/ws
+api_version:       V1
+api_key:           422EFA5413AEE76635A64DB3
+response_format:   json
+callback:
+include_streetcar: false
+
+
+
