@@ -1,0 +1,32 @@
+{
+    "detour": false,
+    "status": "estimated",
+    "locid": 3639,
+    "block": 445,
+    "scheduled": "2014-02-17T09:41:24.000-0800",
+    "shortSign": "4  Gresham TC",
+    "dir": 0,
+    "estimated": "2014-02-17T09:42:44.000-0800",
+    "route": 4,
+    "departed": true,
+    "blockPosition": {
+        "at": "2014-02-17T09:38:08.000-0800",
+        "feet": 2599,
+        "lng": -122.6760517,
+        "trip": [
+            {
+                "progress": 56612,
+                "desc": "Gresham Transit Center",
+                "pattern": 5,
+                "dir": 0,
+                "route": 4,
+                "tripNum": "4337087",
+                "destDist": 59211
+            }
+        ],
+        "lat": 45.5215554,
+        "heading": 201
+    },
+    "fullSign": "4  Division to Gresham TC",
+    "piece": "1"
+}

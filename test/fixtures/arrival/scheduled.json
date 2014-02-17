@@ -1,0 +1,13 @@
+{
+    "scheduled": "2014-02-17T15:20:30.000-0800",
+    "detour": false,
+    "shortSign": "31 To Estacada via Clackamas",
+    "locid": 3639,
+    "status": "scheduled",
+    "dir": 0,
+    "route": 31,
+    "departed": false,
+    "block": 3102,
+    "piece": "1",
+    "fullSign": "31  Clackamas Town Ctr via Milwaukie, continues to Estacada"
+}

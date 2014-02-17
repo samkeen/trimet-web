@@ -1,10 +1,15 @@
 <p><strong>For Transit stop: <%= location['locid'] %> : <%= location['desc'] %> (<%= location['dir'] %>)</strong></p>
 <% arrivals.each do |bus| %>
-    <% if bus.status == 'estimated' %>
-        <p><%= bus %> will arrive in <%= minutes_from_now(bus.estimated) %> mins (realtime)</p>
-    <% elsif bus.status == 'scheduled' %>
-        <p><%= bus.short_sign %> is scheduled to arrive at <%= short_date(bus.scheduled) %></p>
-    <% else %>
-        <p><%= bus.short_sign %> will arrive at ###</p>
+    <% case bus.status
+         when 'estimated' %>
+          <p><%= bus %> will arrive in <%= minutes_from_now(bus.estimated) %> mins (realtime)</p>
+        <% when 'scheduled' %>
+          <p><%= bus.short_sign %> is scheduled to arrive at <%= short_date(bus.scheduled) %></p>
+        <% when 'delayed' %>
+          <p><%= bus.short_sign %> <strong>DELAYED</strong> : status of service is uncertain</p>
+        <% when 'canceled' %>
+          <p><%= bus.short_sign %> <strong>CANCELED</strong> : scheduled arrival was canceled for the day</p>
+        <% else %>
+          <p><%= bus.short_sign %> UNKNOWN status for this Bus.</p>
     <% end %>
 <% end %>
