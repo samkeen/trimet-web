@@ -183,4 +183,15 @@ describe 'ViewObject' do
 
   end
 
+  describe 'a view object is immutable' do
+
+    it 'throws an error if mutation attempt is made' do
+      view_opject = ViewObject.new('FirstName' => 'Bob')
+      assert_raises(TypeError) {
+        view_opject.first_name = 'Ted'
+      }
+    end
+
+  end
+
 end

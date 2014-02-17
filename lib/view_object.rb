@@ -1,13 +1,30 @@
 require 'ostruct'
 #
-# Extend OpenStruct to accept CamelCase or snake_case field names
+# Extend OpenStruct to accept PascalCase, camelCase or snake_case field names
 #
-#     # these both work
+#     # these all work
 #     viewObj.shortSign
 #     viewObj.short_sign
 #
 # The initializer also accepts a to_string_field param who's value
 # will be used for the to_s method
+#
+# This instantiates a Frozen object. ViewObject are simply ment to
+# transport data to the View tier
+#
+# Proposed Usage:
+#
+#   # instantiate with any sort of cases keys from a hash (where the hash is coming
+#   # from a 3rd party so you do not have control over casing strategy used)
+#
+#   obj = ViewObject.new('FirstName' => 'Bob', 'last_name' => 'Terwilliger')
+#
+#   # then in your code, you can use your desired casing strategy
+#
+#   puts obj.first_name
+#   puts obj.last_name
+#   obj.first_name = 'Ted' # RuntimeException (obj is frozen)
+#
 class ViewObject < OpenStruct
 
   # @param [Hash] state
@@ -16,6 +33,7 @@ class ViewObject < OpenStruct
   def initialize(state, to_string_field = nil)
     @to_string_field = underscore(to_string_field).to_sym if to_string_field.respond_to?(:to_sym)
     super(underscore_ize_keys(state))
+    self.freeze
   end
 
   # @return [String]
