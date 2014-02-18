@@ -18,6 +18,22 @@ Get your Trimet API Key and write to config.yml `api_key`
 ruby app.rb
 ```
 
+## Tests
+
+CI is hosted at Travis : https://travis-ci.org/samkeen/trimet-web
+
+To run tests locally
+
+```
+rake
+```
+
 ## Documentation
 
 Hosted on [rubydoc.info](http://rubydoc.info/github/samkeen/trimet-web/)
+
+To create docs locally
+
+```
+rake docs
+```
