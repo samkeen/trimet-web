@@ -1,3 +1,4 @@
+
 task :default => [:test_all]
 
 # see http://rake.rubyforge.org/classes/Rake/TestTask.html
@@ -14,4 +15,13 @@ end
 Rake::TestTask.new(:test_framework) do |t|
   puts 'Running Framework Tests'
   t.pattern = 'test/framework/**/*_test.rb'
+end
+
+task :docs do
+  puts 'removing docs directory'
+  FileUtils.rm_rf('doc')
+  puts 'removing .yardoc directory'
+  FileUtils.rm_rf('.yardoc')
+  puts 'generating yard docs in docs directory'
+  `yardoc`
 end

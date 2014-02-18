@@ -8,6 +8,8 @@ end
 
 group :development do
   gem 'travis-lint'
+  gem 'redcarpet'
+  gem 'yard'
 end
 
 group :test do

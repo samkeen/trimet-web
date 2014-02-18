@@ -14,16 +14,16 @@ require 'ostruct'
 #
 # Proposed Usage:
 #
-#   # instantiate with any sort of cases keys from a hash (where the hash is coming
-#   # from a 3rd party so you do not have control over casing strategy used)
+#     # instantiate with any sort of cases keys from a hash (where the hash is coming
+#     # from a 3rd party so you do not have control over casing strategy used)
 #
-#   obj = ViewObject.new('FirstName' => 'Bob', 'last_name' => 'Terwilliger')
+#     obj = ViewObject.new('FirstName' => 'Bob', 'last_name' => 'Terwilliger')
 #
-#   # then in your code, you can use your desired casing strategy
+#     # then in your code, you can use your desired casing strategy
 #
-#   puts obj.first_name
-#   puts obj.last_name
-#   obj.first_name = 'Ted' # RuntimeException (obj is frozen)
+#     puts obj.first_name
+#     puts obj.last_name
+#     obj.first_name = 'Ted' # RuntimeException (obj is frozen)
 #
 class ViewObject < OpenStruct
 
@@ -54,9 +54,10 @@ class ViewObject < OpenStruct
   # Field names are also normalized in the sense that you can
   # ask for camelCase or snake_case
   #
-  #     # these both work
+  #     # these all work
   #     viewObj.shortSign
   #     viewObj.short_sign
+  #     viewObj.ShortSign
   #
   # @param [String] meth
   def method_missing(meth, *args)

@@ -17,3 +17,7 @@ Get your Trimet API Key and write to config.yml `api_key`
 ```
 ruby app.rb
 ```
+
+## Documentation
+
+Hosted on [rubydoc.info](http://rubydoc.info/github/samkeen/trimet-web/)
