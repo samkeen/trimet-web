@@ -1,10 +1,10 @@
 
-task :default => [:test_all]
+task :default => [:test]
 
 # see http://rake.rubyforge.org/classes/Rake/TestTask.html
 require 'rake/testtask'
 
-task :test_all => [:test_unit, :test_framework] do
+task :test => [:test_unit, :test_framework] do
 end
 
 Rake::TestTask.new(:test_unit) do |t|

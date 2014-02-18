@@ -14,8 +14,10 @@ module Transit
     # @return [Array]
     def arrivals
       arrivals = []
-      @state['arrival'].each do |arrival|
-        arrivals.push(Arrival.new(arrival, :shortSign))
+      unless @state['arrival'].nil?
+        @state['arrival'].each do |arrival|
+          arrivals.push(Arrival.new(arrival, :shortSign))
+        end
       end
       arrivals
     end

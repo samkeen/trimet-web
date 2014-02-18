@@ -1,4 +1,5 @@
 require 'net/http'
+require_relative 'transit_errors'
 
 module Transit
   require_relative 'stop'
@@ -38,6 +39,7 @@ module Transit
       if(res.is_a?(Net::HTTPSuccess))
         parsed = parse_response(res.body)['resultSet']
       end
+      check_for_error(parsed)
       parsed
     end
 
@@ -50,6 +52,20 @@ module Transit
           throw('xml support not implemented')
         else
           throw("Unsupported format: '#{@config['response_type'].downcase}'")
+      end
+    end
+
+    # @param [Hash] parsed_response
+    def check_for_error(parsed_response)
+      if parsed_response.has_key?('errorMessage')
+        case parsed_response['errorMessage']['content']
+          when /^Location id not found/i
+            raise LocationIdNotFoundError, 'Trimet Location Id not found'
+          when /^Couldn't parse location/i
+            raise LocationIdNotParsableError, 'Trimet Location Id not pasable'
+          else
+            raise RuntimeError, 'Unexpected Error From Trimet API'
+        end
       end
     end
 

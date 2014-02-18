@@ -15,7 +15,7 @@ But the plan is to expand in the endpoints presented.
 ```
 $ bundle install
 
-$ cp config.dist.yaml config.yaml
+$ cp config.dist.yml config.yml
 ```
 
 Get your [Trimet API Key](http://developer.trimet.org/registration/) and write to config.yml `api_key`
