@@ -1,21 +1,22 @@
 require 'sinatra'
 require 'yaml'
 
-here = File.dirname(__FILE__)
-require "#{here}/lib/transit/system.rb"
-require "#{here}/lib/transit/transit_errors.rb"
-require "#{here}/lib/datetime_helper.rb"
-config = YAML.load_file("#{here}/config.yml")
+this_dir = File.dirname(__FILE__)
+require "#{this_dir}/lib/transit/system.rb"
+require "#{this_dir}/lib/transit/transit_errors.rb"
+require "#{this_dir}/lib/datetime_helper.rb"
+config = YAML.load_file("#{this_dir}/config.yml")
 
-trimet = Transit::System.new(config)
+
 
 helpers DatetimeHelper
 
 get '/' do
-  'Hello world!'
+  erb :home
 end
 
 get '/stop/:location_id' do
+  trimet = Transit::System.new(config)
 
   location_id = params[:location_id]
   begin
@@ -30,4 +31,3 @@ get '/stop/:location_id' do
 
   erb :stop, :locals => {location: stop.location, arrivals: stop.arrivals}
 end
-
