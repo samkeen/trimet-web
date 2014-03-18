@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/samkeen/trimet-web.png?branch=master)](https://travis-ci.org/samkeen/trimet-web)
 
+[![Coverage Status](https://coveralls.io/repos/samkeen/trimet-web/badge.png)](https://coveralls.io/r/samkeen/trimet-web)
+
 Building an API around the Trimet [Arrivals Web Service](http://developer.trimet.org/ws_docs/arrivals_ws.shtml)
 (see Transit module at lib/transit)
 
