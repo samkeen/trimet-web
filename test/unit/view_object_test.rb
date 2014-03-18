@@ -1,6 +1,9 @@
 require_relative '../../lib/view_object'
 require 'minitest/autorun'
 
+require 'coveralls'
+Coveralls.wear!
+
 
 describe 'ViewObject' do
 

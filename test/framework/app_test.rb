@@ -4,6 +4,9 @@ require_relative '../../app'
 require 'minitest/autorun'
 require 'rack/test'
 
+require 'coveralls'
+Coveralls.wear!
+
 # @return [Rack::Test::Session]
 def get_client
   Rack::Test::Session.new(Rack::MockSession.new(Sinatra::Application))

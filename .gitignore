@@ -2,3 +2,5 @@
 /config.yaml
 doc/
 .yardoc
+/coverage/
+test/**/coverage

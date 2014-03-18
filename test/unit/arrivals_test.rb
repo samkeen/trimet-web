@@ -2,6 +2,9 @@ require_relative '../../lib/transit/arrival'
 require_relative '../lib/fixture'
 require 'minitest/autorun'
 
+require 'coveralls'
+Coveralls.wear!
+
 include Fixture
 
 describe 'Transit::Arrival' do
